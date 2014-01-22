@@ -5,8 +5,10 @@ echo "WARNING: cm.dependencies not existing! You'll probably need a local_manife
 fi
 
 echo "updating dependencies file..."
-sed 's/\"repository\"/\"branch\": \"cm-11.0\"\n   \"repository\"/g' $1/cm.dependencies > $1/cm.tmp
+sed 's/\"repository\"/\"branch\": \"cm-11.0\",\
+    \"repository\"/g' $1/cm.dependencies > $1/cm.tmp
+rm -f $1/cm.dependencies
 mv $1/cm.tmp $1/cm.dependencies
 sed 's/\"android_/\"CyanogenMod\/android_/g' $1/cm.dependencies > $1/cd.dependencies
-rm -f cm.dependencies
+rm -f $1/cm.dependencies
 echo "done!"
