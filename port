@@ -24,16 +24,11 @@ if [ "$cmgh" = "true" ]; then
 	if [ ! -d "$1" ]; then
 		echo "No device tree found."
 		python $path/scripts/roomservice.py $1
-		if [ ! -d "android_device*" ]; then
-			echo "port failed!"
-			exit 1
-		else
-			export wdir=android_device_*$1
-		fi
 	else
 		export wdir=$1
 	fi
 else
+	export wdir=$1
 	if [ ! -d "$1" ]; then
 		echo "Device tree not found!"
 		exit 1
