@@ -1,0 +1,56 @@
+#!/bin/bash
+
+path=`dirname $0`
+
+while read line;    do 
+     $line
+done < "$path/config"
+
+if [ "$splash" = "true" ];then
+echo
+echo
+echo
+echo
+echo -e "CyanDream device porter"
+sleep 2
+echo "This script will port your CM device source automatically to CyanDream."
+sleep 2
+echo
+echo
+echo "starting..."
+echo
+fi
+if [ "$cmgh" = "true" ]; then
+	if [ ! -d "$1" ]; then
+		echo "No device tree found."
+		python $path/scripts/roomservice.py $1
+		if [ ! -d android_device* ]; then
+			echo "port failed!"
+			exit 1
+		else
+			export wdir=android_device_*$1
+		fi
+	else
+		export wdir=$1
+	fi
+else
+	if [ ! -d "$1" ]; then
+		echo "Device tree not found!"
+		exit 1
+	fi
+fi
+if [ "$vendor" = "true" ]; then
+	$path/scripts/vendor.sh $wdir
+fi
+if [ "$pname" = "true" ]; then
+	$path/scripts/pname.sh $wdir
+fi
+if [ "$deps" = "true" ]; then
+	$path/scripts/deps.sh $wdir
+fi
+if [ "$git" = "true" ]; then
+	$path/scripts/git.sh $wdir
+fi
+echo
+echo
+echo "Porting successfully done!"
