@@ -3,4 +3,5 @@ export cmgh=true
 export vendor=true
 export pname=true
 export deps=true
+export muppets=true
 export git=true

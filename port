@@ -24,6 +24,7 @@ if [ "$cmgh" = "true" ]; then
 	if [ ! -d "$1" ]; then
 		echo "No device tree found."
 		python $path/scripts/roomservice.py $1
+		export wdir="an*$1"
 	else
 		export wdir=$1
 	fi
@@ -42,6 +43,9 @@ if [ "$pname" = "true" ]; then
 fi
 if [ "$deps" = "true" ]; then
 	$path/scripts/deps.sh $wdir
+fi
+if [ "$muppets" = "true" ]; then
+        $path/scripts/muppets.sh $wdir $1
 fi
 if [ "$git" = "true" ]; then
 	$path/scripts/git.sh $wdir
