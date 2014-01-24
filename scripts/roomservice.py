@@ -80,9 +80,6 @@ while not depsonly:
         repositories.append(res)
     page = page + 1
 
-local_manifests = r'.repo/local_manifests'
-if not os.path.exists(local_manifests): os.makedirs(local_manifests)
-
 def exists_in_tree(lm, repository):
     for child in lm.getchildren():
         if child.attrib['name'].endswith(repository):
