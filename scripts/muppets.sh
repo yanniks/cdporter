@@ -29,6 +29,8 @@ elif [ -d an*zte*$2 ];then
 	export VENDOR=zte
 elif [ -d an*google*$2 ];then
 	export VENDOR=google
+elif [ -d an*asus*$2 ];then
+        export VENDOR=asus
 fi
 
 if [ ! -z "$VENDOR" ];then
