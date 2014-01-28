@@ -5,3 +5,4 @@ export pname=true
 export deps=true
 export muppets=true
 export git=true
+export vendorsetup=true

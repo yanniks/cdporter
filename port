@@ -41,6 +41,9 @@ fi
 if [ "$pname" = "true" ]; then
 	$path/scripts/pname.sh $wdir
 fi
+if [ "$vendorsetup" = "true" ]; then
+	$path/scripts/vendorsetup.sh $wdir
+fi
 if [ "$deps" = "true" ]; then
 	$path/scripts/deps.sh $wdir
 fi
