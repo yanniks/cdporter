@@ -40,9 +40,9 @@ rm -f $1/cd.dependencies
 mv $1/cd.dep.tmp $1/cd.dependencies
 
 	sed 's/]/ { \
+   \"branch\": \"cm-11.0\" \
    \"repository\": \"TheMuppets\/proprietary_vendor_'$VENDOR'\", \
    \"target_path\": \"vendor\/'$VENDOR'\", \
-   \"branch\": \"cm-11.0\" \
  } \
 ]/g' $1/cd.dependencies > $1/cd.dep.tmp
 	rm -f $1/cd.dependencies
