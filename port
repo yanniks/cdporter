@@ -27,7 +27,10 @@ if [ "$cmgh" = "true" ]; then
 		export wdir="an*$1"
 	        if [ ! -d "$wdir" ]; then
                 	echo "Device tree not found!"
-                	exit 1
+			if [ `uname -n` = "xbmc" ];then
+			  echo true > /var/lib/jenkins/jobs/cdporter/android/statusfile
+			fi
+	                exit 1
         	fi
 	else
 		export wdir=$1
