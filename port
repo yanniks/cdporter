@@ -25,6 +25,10 @@ if [ "$cmgh" = "true" ]; then
 		echo "No device tree found."
 		python $path/scripts/roomservice.py $1
 		export wdir="an*$1"
+	        if [ ! -d "$wdir" ]; then
+                	echo "Device tree not found!"
+                	exit 1
+        	fi
 	else
 		export wdir=$1
 	fi
